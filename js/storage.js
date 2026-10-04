@@ -1,0 +1,1 @@
+window.Store={get:(k,f)=>{try{return JSON.parse(localStorage.getItem(k))??f}catch(e){return f}},set:(k,v)=>localStorage.setItem(k,JSON.stringify(v)),remove:k=>localStorage.removeItem(k),favorites:()=>Store.get("favorites",[]),toggleFavorite:id=>{let a=Store.favorites();a=a.includes(id)?a.filter(x=>x!==id):[...a,id];Store.set("favorites",a);return a}};
